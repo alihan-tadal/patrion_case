@@ -40,7 +40,7 @@ class CreateEquipmentAPIView(generics.CreateAPIView):
 
     def perform_create(self, serializer):
         """Create a new equipment"""
-        factory = self.request.user.factory
+        factory = get_object_or_404(Factory, pk=self.kwargs.get("pk"))
         serializer.save(factory=factory)
 
 
