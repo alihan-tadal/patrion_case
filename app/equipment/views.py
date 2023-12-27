@@ -40,8 +40,13 @@ class CreateEquipmentAPIView(generics.CreateAPIView):
 
     def perform_create(self, serializer):
         """Create a new equipment"""
+        if self.request.user.is_superuser:
+            # get lastly created factory
+            factory = Factory.objects.last()
 
-        factory = get_object_or_404(Factory, pk=self.request.user.factory.id)
+        else:
+            factory = get_object_or_404(Factory, pk=self.request.user.factory.id)
+            
         serializer.save(factory=factory)
 
 
