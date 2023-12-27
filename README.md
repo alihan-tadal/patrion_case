@@ -4,6 +4,12 @@
 FactoryInsights, kullanıcıların hesap oluşturmasına, fabrikalar eklemesine, bu fabrikalardaki makineleri yönetmesine ve her bir makineye özellik eklemesine izin veren Django ile gelisitirilmis bir web uygulamasıdır.
 
 ## API Dokümantasyonu
+Uygulama, super user yetkilerine sahip bir kullanıcı ve uygulamaya giriş bilgileri ile gönderilmektedir. Yetkilerinden bağımsız her kullanıcı **JWT** ile uygulamaya erisim saglayabilir. JWT ile ilglil bütün ayarlar `app/settings.py` dosyasi icerisinde gerceklestirilmistir. Paylaşilan giris bilgileri ile `/api/user/token` endpoint'i uzerinden access token elde edilebilir. Bu access token ile kullanilabilecek endpoint'ler asagidaki linkte paylasilmistir.
+
+### Notlar 
+- Yeni farbrika oluşturulduğunda bu operasyon sonucunda bir kullanici hesabi otomatik olarak olusur. Bu kullanicinin maili rastgele bir adrestir ve daha sonradan değiştirilebilir. Fabrika ile beraber oluşan her kullanicinin ilk parolasi: **changeme** ve degistirilmesi onerilir.
+- Oluşturulan kullanicilar sadece 1 fabrikaya atanabilir.
+- Factory Admin kontrolleri, kullanicinin `is_staff` ozelligi ile kontrol edilir. Bu yuzden bir Factory Admin yaratmak icin bu parametreyi `true` olarak secilmelidir.
 
 [Swagger Docs](http://104.248.140.14/api/schema/swagger-ui/)
 
