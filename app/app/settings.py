@@ -30,7 +30,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
-    "patrioncase-4e3f175df7fc.herokuapp.com"
+    "104.248.140.14"
 ]
 
 

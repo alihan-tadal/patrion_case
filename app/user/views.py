@@ -66,7 +66,9 @@ class ListUserView(generics.ListAPIView):
 
     def get_queryset(self):
         """Return all users"""
-        if self.request.user.is_staff and self.request.user.factory is None:
+        if get_user_model().objects.first() == self.request.user:
+            return self.queryset.all()
+        elif self.request.user.is_staff:
             return self.queryset.all()
         else:
             return self.queryset.filter(factory=self.request.user.factory)
