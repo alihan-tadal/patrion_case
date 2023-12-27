@@ -5,7 +5,7 @@ FactoryInsights, kullanıcıların hesap oluşturmasına, fabrikalar eklemesine,
 
 ## API Dokümantasyonu
 
-Swagger UI: http://localhost:8000/api/schema/swagger-ui/
+[Swagger Docs](http://104.248.140.14/api/schema/swagger-ui/)
 
 ![Alt text](assets/swaggerSnapshot.png)
 
