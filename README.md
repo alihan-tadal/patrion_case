@@ -48,13 +48,14 @@ python manage.py runserver # Server başlatılır.
 
 ```
 
-## Test Senaryoları
-### User Modeli
+## Test
+TODO: Projedeki butun test senaryolarini ekle.
+
+### User Modeli Test Senaryolari
 - Create User: Input email and password, verify successful creation.
 - Email Normalization: Input email with uppercase letters, verify lowercase normalization.
 - Invalid Email: Input None for email, verify ValueError is raised.
 - Create Superuser: Input email and password, verify superuser and staff privileges.
-
 
 ### Testlerin Çalıştırılması
 
@@ -62,6 +63,7 @@ python manage.py runserver # Server başlatılır.
 coverage run --omit='*/migrations/*','*/__init__.py','*/apps.py','*/admin.py','*/tests.py','*/urls.py','*/wsgi.py' manage.py test
 ```
 
+### Test Coverage
 | Name                     | Stmts | Miss | Cover |
 |--------------------------|-------|------|-------|
 | app/settings.py          |   24  |   0  |  100% |
