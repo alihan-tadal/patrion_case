@@ -62,4 +62,11 @@ class ListUserView(generics.ListAPIView):
 
     serializer_class = UserSerializer
     permission_classes = [IsAdminUser, IsAuthenticated]
-    queryset = get_user_model().objects.all()
+    
+
+    def get_queryset(self):
+        """Return all users"""
+        if self.request.user.is_staff and self.request.user.factory is None:
+            return self.queryset.all()
+        else:
+            return self.queryset.filter(factory=self.request.user.factory)

@@ -145,3 +145,20 @@ class PrivateUserApiTests(TestCase):
         self.client.force_authenticate(self.ru)
         res = self.client.post(CREATE_USER_URL, payload)
         self.assertEqual(res.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_create_user_cannot_create_superuser(self):
+        """Test creating superuser with regular user"""
+
+        payload = {
+            "email": "testsu@test.com",
+            "password": "testpass",
+            "name": "Test name",
+            "surname": "Test surname",
+            "is_superuser": True,
+        }
+        self.client.logout()
+        self.client.force_authenticate(self.ru)
+        res = self.client.post(CREATE_USER_URL, payload)
+        self.assertEqual(res.status_code, status.HTTP_403_FORBIDDEN)
+
+            
